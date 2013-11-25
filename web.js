@@ -4,8 +4,7 @@ var app = express();
 app.use(express.logger());
 
 app.get('/', function(request, response) {
-   var fileBuff = new Buffer(256);
-   fileBuff.write(fs.readFileSync('index.html').toString());
+   var fileBuff = new Buffer(fs.readFileSync('index.html').toString());
 
    response.send(fileBuff.toString());
 });
